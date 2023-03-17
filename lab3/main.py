@@ -56,6 +56,9 @@ def add_symbol(arg):
         arg[i] += '!'
     return arg
 
+input_string = input("Enter elements of a list separated by space ")
+print(add_symbol(input_string))
+
 print("Exercise 6")
 def guess_the_number():
     random.seed()
@@ -111,7 +114,7 @@ size = int(input())
 for i in range(1, size + 1):
     spaces = " " * (size - i)
     spacesb = " " * ((i * 2) - 3)
-    if i == (size+1)//2:
+    if i == (size+2)//2:
         print(spaces + "*"*((i*2)-1))
     elif i == 1:
         print(spaces + "*")
