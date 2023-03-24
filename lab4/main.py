@@ -46,6 +46,19 @@ np.fill_diagonal(matrix, np.flip([letter for letter in words[2]]))
 matrix[:, 0] = [letter for letter in words[0]]
 matrix[2, :] = [letter for letter in words[1] + " "]
 
+inaczej
+slowo1 = 'malina'
+slowo2 = 'lizak'
+slowo3 = 'jagoda'
+slowo2_1 = slowo3[::-1]
+print(slowo3_1)
+
+# matrix = np.zeros((6,6), dtype=str)
+# #matrix[:, 0] = np.array(list(slowo1))
+# matrix[:, 0] = np.fromiter(slowo1, dtype='S1')
+# matrix[5:,::-1] = np.fromiter(slowo3, dtype='S1')
+# #matrix = np.diaf_fill(list(slowo2))
+# np.fill_diagonal(matrix, list(slowo2))
 
 print(matrix)
 
