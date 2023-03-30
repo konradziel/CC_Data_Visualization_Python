@@ -17,8 +17,13 @@ def foo(n):
     print("Array size:", arr.shape)
     return arr
 
-print("Enter the sie of table:")
-n = int(input())
+print("Enter the size of table:")
+while True:
+            try:
+                n = int(input())
+                break
+            except ValueError:
+                print("Oops!  That was no valid number.  Try again...")
 foo(n)
 
 print("\nZadanie 4")
@@ -46,12 +51,12 @@ np.fill_diagonal(matrix, np.flip([letter for letter in words[2]]))
 matrix[:, 0] = [letter for letter in words[0]]
 matrix[2, :] = [letter for letter in words[1] + " "]
 
-inaczej
-slowo1 = 'malina'
-slowo2 = 'lizak'
-slowo3 = 'jagoda'
-slowo2_1 = slowo3[::-1]
-print(slowo3_1)
+# inaczej
+# slowo1 = 'malina'
+# slowo2 = 'lizak'
+# slowo3 = 'jagoda'
+# slowo2_1 = slowo3[::-1]
+# print(slowo3_1)
 
 # matrix = np.zeros((6,6), dtype=str)
 # #matrix[:, 0] = np.array(list(slowo1))
@@ -64,7 +69,14 @@ print(matrix)
 
 print("\nZadanie 7")
 
-n = int(input())
+print("Enter size of matrix: ")
+while True:
+            try:
+                n = int(input())
+                break
+            except ValueError:
+                print("Oops!  That was no valid number.  Try again...")
+
 def generate_matrix(n):
     matrix = np.zeros((n, n), dtype=int)
     k = 1
@@ -103,6 +115,7 @@ def arr_slice(arr, direction='horizontal'):
     else:
         print("Incorrect division direction. Enter 'horizontal' or 'vertical'")
         return None
+
 my_array = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]])
 
 print("Vertical slice:")
