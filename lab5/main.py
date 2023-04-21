@@ -1,5 +1,5 @@
 import numpy as np
-from numpy import matrix
+#from numpy import matrix
 
 print("\nZadanie 1")
 matrix1z1 = np.array([1,4,7])
