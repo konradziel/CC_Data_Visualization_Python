@@ -24,33 +24,19 @@ def Zad2():
 
 
 def Zad3():
+    fig, (ax1,ax2) = plt.subplots(ncols=2, figsize=(10,6))
+    fig.suptitle('Liczba  narodzin w latach 2010-2015')
+    ax1.set_title('Wykres w pandasie')
+    ax2.set_title('Wykres w seaborn')
     df = pd.read_excel('imiona.xlsx')
-
-    df = df[(df['Rok'] >= 2010) & (df['Rok'] <= 2015)]
-
-    grouped_data = df.groupby(['Rok', 'Plec']).size().reset_index(name='Liczba dzieci')
-    plt.figure(figsize=(12, 5))
-    #Pandas
-    plt.subplot(1, 2, 1)
-    plt.title('Wykres w pandasie')
-    plt.bar(grouped_data[grouped_data['Plec'] == 'K']['Rok'],
-            grouped_data[grouped_data['Plec'] == 'K']['Liczba dzieci'], label='K', width=0.35)
-    plt.bar(grouped_data[grouped_data['Plec'] == 'M']['Rok'] + 0.35,
-            grouped_data[grouped_data['Plec'] == 'M']['Liczba dzieci'], label='M', width=0.35)
-    plt.xlabel('Rok')
-    plt.ylabel('Liczba dzieci')
-    plt.legend()
-
-    #Seaborn
-    plt.subplot(1, 2, 2)
-    plt.title('Wykres w seabornie')
-    sns.barplot(data=grouped_data, x='Rok', y='Liczba dzieci', hue='Plec')
-    plt.xlabel('Rok')
-    plt.ylabel('Liczba dzieci')
-
-    plt.suptitle('Liczba narodzonych dzieci w latach 2010-2015', fontsize=14)
-
+    #filtrowanie po kolumnie 'Rok' (2010-2015)
+    data = df[(df['Rok'] >= 2010) & (df['Rok'] <= 2015)]
+    data_grouped = data.groupby('Plec')['Liczba'].sum()
+    data_grouped.plot.bar(ax=ax1)
+    ax1.legend()
+    sns.barplot(data=data, x='Plec', y='Liczba', estimator=sum, errorbar=None, ax=ax2)
     plt.show()
+
 
 Zad1()
 Zad2()
